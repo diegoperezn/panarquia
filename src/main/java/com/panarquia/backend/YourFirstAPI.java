@@ -4,33 +4,19 @@ import java.io.Serializable;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
-import com.google.api.server.spi.config.ApiNamespace;
 
 /**
   * Add your first API methods in this class, or you may create another class. In that case, please
   * update your web.xml accordingly.
  **/
-@Api(name = "panarquiaApi",
-version = "1",
-namespace = @ApiNamespace(ownerDomain = "com.panarquia.backend",
-    ownerName = "com.panarquia.backend",
-    packagePath = ""))
+@Api(name = "panarquiaApi", version = "1")
 public class YourFirstAPI {
 	
-	@ApiMethod(path = "say",
-		    name = "sayHiUser",
+	@ApiMethod(path = "sayHiUser", name = "sayHiUser",
 		    httpMethod = ApiMethod.HttpMethod.GET)
 	public resp helloWorld() {
-		return new resp("seer", "sdafsd");
+		return new resp("seer", "3333");
 	}
-	
-	@ApiMethod(path = "sayHi",
-		    name = "sayHiUser",
-		    httpMethod = ApiMethod.HttpMethod.GET)
-	public resp sayHi() {
-		return new resp("seer", "sdafsd");
-	}
-	
 
 	public class resp implements Serializable {
 		
