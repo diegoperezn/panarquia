@@ -3,8 +3,9 @@ package com.panarquia.backend.domain.service.impl;
 import java.util.List;
 
 import com.panarquia.backend.domain.Product;
-import com.panarquia.backend.domain.DTOs.IProductViewDTO;
-import com.panarquia.backend.domain.DTOs.impl.ProductViewDTO;
+import com.panarquia.backend.domain.DTOs.ICreateProductDTO;
+import com.panarquia.backend.domain.DTOs.IViewProductDTO;
+import com.panarquia.backend.domain.DTOs.impl.ViewProductDTO;
 import com.panarquia.backend.domain.repository.IProductRepository;
 import com.panarquia.backend.domain.repository.impl.ProductRepository;
 import com.panarquia.backend.domain.service.IProductService;
@@ -16,27 +17,35 @@ public class ProductService implements IProductService {
 		return INSTANCE; 
 	}
 	
-	private IProductRepository productRepository = ProductRepository.getInstance(); 
+	private IProductRepository repository = ProductRepository.getInstance(); 
 	
 	@Override
-	public void getProducts(List<IProductViewDTO> products) {
-		List<Product> domainProducts = productRepository.retrieveAllProdcuts();
+	public void getProducts(List<IViewProductDTO> products) {
+		List<Product> domainProducts = repository.retrieveAllProdcuts();
 		
 		for (Product product : domainProducts) {
-			IProductViewDTO productDto = buildProductViewDTO(product);
+			IViewProductDTO productDto = buildProductViewDTO(product);
 			
 			products.add(productDto);
 		}
 	}
 
 	@Override
-	public void getProductById(ProductViewDTO productDTO) {
-		Product product = productRepository.getProduct(productDTO.getId());
+	public void getProductById(IViewProductDTO productDTO) {
+		Product product = repository.getProduct(productDTO.getId());
 			
 		buildProductViewDTO(product, productDTO);
 	}
 	
-	private void buildProductViewDTO(Product product, IProductViewDTO productDto) {
+	@Override
+	public void createProduct(ICreateProductDTO productDTO) {
+		Product product = new Product(productDTO.getName(), productDTO.getBriefDescription(), 
+				productDTO.getDescription(), productDTO.getUrlPhoto(), null, null);
+		
+		this.repository.save(product);
+	}
+	
+	private void buildProductViewDTO(Product product, IViewProductDTO productDto) {
 		productDto.setBriefDescription(product.getBriefDescription());
 		productDto.setDescription(product.getDescription());
 		productDto.setId(product.getId());
@@ -44,8 +53,8 @@ public class ProductService implements IProductService {
 		productDto.setUrlPhoto(product.getUrlPhoto());
 	}
 
-	private IProductViewDTO buildProductViewDTO(Product product) {
-		IProductViewDTO productDTO = new ProductViewDTO();
+	private IViewProductDTO buildProductViewDTO(Product product) {
+		IViewProductDTO productDTO = new ViewProductDTO();
 		
 		buildProductViewDTO(product, productDTO);
 		

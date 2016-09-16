@@ -12,9 +12,9 @@ public class Product {
 	private List<Price> prices;
 	private Category category;
 
+	@Deprecated
 	public Product(long id, String name, String briefDescription, String description, String urlPhoto,
 			List<Price> prices, Category category) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.briefDescription = briefDescription;
@@ -24,6 +24,16 @@ public class Product {
 		this.category = category;
 	}
 
+	public Product(String name, String briefDescription, String description, String urlPhoto,
+			List<Price> prices, Category category) {
+		this.name = name;
+		this.briefDescription = briefDescription;
+		this.description = description;
+		this.urlPhoto = urlPhoto;
+		this.prices = prices;
+		this.category = category;
+	}
+	
 	public long getId() {
 		return id;
 	}
@@ -51,5 +61,5 @@ public class Product {
 	public Category getCategory() {
 		return category;
 	}
-
+	
 }
