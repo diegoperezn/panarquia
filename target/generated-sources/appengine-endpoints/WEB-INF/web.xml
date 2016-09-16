@@ -4,7 +4,7 @@
         <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
         <init-param>
             <param-name>services</param-name>
-            <param-value>com.panarquia.backend.YourFirstAPI</param-value>
+            <param-value>com.panarquia.backend.YourFirstAPI,com.panarquia.backend.controller.ProductController</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>

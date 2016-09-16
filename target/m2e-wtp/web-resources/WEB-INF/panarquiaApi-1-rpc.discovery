@@ -1,13 +1,11 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/5GcRnz8Zk6UAshzKazMfSK2vmjA\"",
+ "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/Vms0M1FBJ8Z8-DjC7tJWepOAqY8\"",
  "discoveryVersion": "v1",
  "id": "panarquiaApi:1",
  "name": "panarquiaApi",
  "version": "1",
  "description": "This is an API",
- "ownerDomain": "com.panarquia.backend",
- "ownerName": "com.panarquia.backend",
  "icons": {
   "x16": "http://www.google.com/images/icons/product/search-16.gif",
   "x32": "http://www.google.com/images/icons/product/search-32.gif"

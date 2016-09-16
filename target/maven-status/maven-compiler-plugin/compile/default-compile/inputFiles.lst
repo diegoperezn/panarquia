@@ -1,2 +1,13 @@
-c:\Dev\WorkSpaceDiego\panarquia\src\main\java\com\panarquia\backend\YourFirstAPI.java
-c:\Dev\WorkSpaceDiego\panarquia\src\main\java\com\panarquia\backend\Constants.java
+C:\Dev\WorkSpaceDiego\panarquia\src\main\java\com\panarquia\backend\domain\Client.java
+C:\Dev\WorkSpaceDiego\panarquia\src\main\java\com\panarquia\backend\controller\ProductController.java
+C:\Dev\WorkSpaceDiego\panarquia\src\main\java\com\panarquia\backend\domain\State.java
+C:\Dev\WorkSpaceDiego\panarquia\src\main\java\com\panarquia\backend\service\IProductService.java
+C:\Dev\WorkSpaceDiego\panarquia\src\main\java\com\panarquia\backend\YourFirstAPI.java
+C:\Dev\WorkSpaceDiego\panarquia\src\main\java\com\panarquia\backend\domain\Order.java
+C:\Dev\WorkSpaceDiego\panarquia\src\main\java\com\panarquia\backend\Constants.java
+C:\Dev\WorkSpaceDiego\panarquia\src\main\java\com\panarquia\backend\domain\OrderState.java
+C:\Dev\WorkSpaceDiego\panarquia\src\main\java\com\panarquia\backend\controller\DTOs\ProductViewDTO.java
+C:\Dev\WorkSpaceDiego\panarquia\src\main\java\com\panarquia\backend\domain\Price.java
+C:\Dev\WorkSpaceDiego\panarquia\src\main\java\com\panarquia\backend\domain\Product.java
+C:\Dev\WorkSpaceDiego\panarquia\src\main\java\com\panarquia\backend\domain\DTOs\IProductViewDTO.java
+C:\Dev\WorkSpaceDiego\panarquia\src\main\java\com\panarquia\backend\service\implementation\ProductServiceImpl.java

@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/Vms0M1FBJ8Z8-DjC7tJWepOAqY8\"",
+ "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/3_cYKqFYx3dLJ2Rc_rU_gXd_PFc\"",
  "discoveryVersion": "v1",
  "id": "panarquiaApi:1",
  "name": "panarquiaApi",
