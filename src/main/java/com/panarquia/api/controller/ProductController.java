@@ -4,13 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.panarquia.api.domain.DTOs.IViewProductDTO;
+import com.panarquia.api.domain.DTOs.impl.CreateProductDTO;
+import com.panarquia.api.domain.DTOs.impl.ViewProductDTO;
 import com.panarquia.api.domain.service.IProductService;
 
 @RestController
+@RequestMapping("/product")
 public class ProductController {
 
 	@Autowired
@@ -25,21 +30,19 @@ public class ProductController {
 		return products;
 	}
 
-//	@ApiMethod(path = "product/{id}", name = "productById", httpMethod = ApiMethod.HttpMethod.GET)
-//	public IViewProductDTO getProductById(@Named("id") Long id) {
-//		IViewProductDTO productDTO = new ViewProductDTO();
-//		productDTO.setId(id);
-//
-//		productService.getProductById(productDTO);
-//
-//		return productDTO;
-//	}
+	@RequestMapping(value ="/{productId}")
+	public IViewProductDTO getProductById(@PathVariable("productId") Long productId) {
+		IViewProductDTO productDTO = new ViewProductDTO();
+		productDTO.setId(productId);
 
-//	@ApiMethod(path = "create", name = "createProduct", httpMethod = ApiMethod.HttpMethod.POST)
-//	public void createProduct(@Named("product") CreateProductDTO productDTO) {
-//
-//		productService.createProduct(productDTO);
-//
-//	}
+		productService.getProductById(productDTO);
+
+		return productDTO;
+	}
+
+	@RequestMapping(value ="/create")
+	public void createProduct(@RequestBody CreateProductDTO productDTO) {
+		productService.createProduct(productDTO);
+	}
 
 }
