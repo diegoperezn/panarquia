@@ -2,35 +2,76 @@ package com.panarquia.api.domain;
 
 import java.util.Date;
 
-public class Price {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+import com.panarquia.api.domain.DTOs.IPriceViewDTO;
+import com.panarquia.api.utils.IHistorical;
+
+@Entity
+public class Price implements IPriceViewDTO, IHistorical {
+
+	@Id
+	@GeneratedValue
 	private long id;
+	@Column(name = "from_date")
 	private Date from;
+	@Column(name = "to_date")
 	private Date to;
 	private Double price;
 
-	public Price(long id, Date from, Date to, Double price) {
-		super();
-		this.id = id;
-		this.from = from;
-		this.to = to;
+	protected Price() {
+	}
+
+	public Price(Double price) {
+		this.from = new Date();
 		this.price = price;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.panarquia.api.domain.IViewPriceDTO#getId()
+	 */
+	@Override
 	public long getId() {
 		return id;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.panarquia.api.domain.IViewPriceDTO#getFrom()
+	 */
+	@Override
 	public Date getFrom() {
 		return from;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.panarquia.api.domain.IViewPriceDTO#getTo()
+	 */
+	@Override
 	public Date getTo() {
 		return to;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.panarquia.api.domain.IViewPriceDTO#getPrice()
+	 */
+	@Override
 	public Double getPrice() {
 		return price;
+	}
+
+	public void setTo(Date to) {
+		this.to = to;
 	}
 
 }

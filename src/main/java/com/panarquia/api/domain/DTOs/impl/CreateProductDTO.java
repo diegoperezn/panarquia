@@ -1,58 +1,62 @@
 package com.panarquia.api.domain.DTOs.impl;
 
-import com.panarquia.api.domain.DTOs.ICreateProductDTO;
+import com.panarquia.api.domain.DTOs.IProductCreateDTO;
 
-public class CreateProductDTO implements ICreateProductDTO {
+public class CreateProductDTO implements IProductCreateDTO {
 
+	private long id;
 	private String name;
 	private String briefDescription;
 	private String description;
-	private String urlPhoto;
+	private Double price;
 	private Long categoryId;
+
+	public String getName() {
+		return name;
+	}
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getBriefDescription() {
+		return briefDescription;
 	}
 
 	public void setBriefDescription(String briefDescription) {
 		this.briefDescription = briefDescription;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
-	public void setUrlPhoto(String urlPhoto) {
-		this.urlPhoto = urlPhoto;
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public Long getCategoryId() {
+		return categoryId;
 	}
 
 	public void setCategoryId(Long categoryId) {
 		this.categoryId = categoryId;
 	}
 
-	@Override
-	public String getName() {
-		return name;
+	public long getId() {
+		return id;
 	}
 
-	@Override
-	public String getBriefDescription() {
-		return briefDescription;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	@Override
-	public String getDescription() {
-		return description;
-	}
-
-	@Override
-	public String getUrlPhoto() {
-		return urlPhoto;
-	}
-
-	@Override
-	public Long getCategoryId() {
-		return categoryId;
-	}
-	
 }

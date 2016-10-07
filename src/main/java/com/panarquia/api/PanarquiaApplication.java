@@ -24,8 +24,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @EnableAutoConfiguration
 public class PanarquiaApplication {
 
-  public static void main(String[] args) {
-    SpringApplication.run(PanarquiaApplication.class, args);
-  }
-  
+	public static void main(String[] args) {
+		SpringApplication.run(PanarquiaApplication.class, args);
+	}
+
 }

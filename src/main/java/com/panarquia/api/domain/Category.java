@@ -1,16 +1,31 @@
 package com.panarquia.api.domain;
 
-public class Category {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-	private long id;
+import com.panarquia.api.domain.DTOs.ICategoryDTO;
+
+@Entity
+public class Category implements ICategoryDTO {
+
+	@Id
+	@GeneratedValue
+	private Long id;
+
 	private String name;
 	private String description;
 
-	public Category(long id, String name, String description) {
-		super();
-		this.id = id;
+	protected Category() {
+	}
+
+	public Category(String name, String description) {
 		this.name = name;
 		this.description = description;
+	}
+
+	public Category(Long categoryId) {
+		this.id = categoryId;
 	}
 
 	public long getId() {

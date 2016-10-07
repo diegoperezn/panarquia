@@ -2,14 +2,17 @@ package com.panarquia.api.domain.service;
 
 import java.util.List;
 
-import com.panarquia.api.domain.DTOs.ICreateProductDTO;
-import com.panarquia.api.domain.DTOs.IViewProductDTO;
+import com.panarquia.api.domain.DTOs.IProductCreateDTO;
+import com.panarquia.api.domain.DTOs.IProductViewDTO;
 
 public interface IProductService {
 
-	void getProducts(List<IViewProductDTO> products);
+	IProductViewDTO getById(long productId);
 
-	void getProductById(IViewProductDTO productDTO);
+	List<? extends 	IProductViewDTO> getAll();
 
-	void createProduct(ICreateProductDTO productDTO);
+	void create(IProductCreateDTO productDTO);
+
+	void update(IProductCreateDTO productDTO);
+
 }

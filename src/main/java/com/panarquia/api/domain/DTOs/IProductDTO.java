@@ -1,6 +1,8 @@
 package com.panarquia.api.domain.DTOs;
 
-public interface ICreateProductDTO {
+public interface IProductDTO {
+
+	long getId();
 
 	String getName();
 
@@ -8,8 +10,4 @@ public interface ICreateProductDTO {
 
 	String getDescription();
 
-	String getUrlPhoto();
-
-	Long getCategoryId();
-	
 }

@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.panarquia.api.domain.Category;
+import com.panarquia.api.domain.Price;
 import com.panarquia.api.domain.Product;
-import com.panarquia.api.domain.DTOs.ICreateProductDTO;
-import com.panarquia.api.domain.DTOs.IViewProductDTO;
-import com.panarquia.api.domain.DTOs.impl.ViewProductDTO;
+import com.panarquia.api.domain.DTOs.IProductCreateDTO;
 import com.panarquia.api.domain.repository.IProductRepository;
 import com.panarquia.api.domain.service.IProductService;
 
@@ -16,48 +16,43 @@ import com.panarquia.api.domain.service.IProductService;
 public class ProductService implements IProductService {
 
 	@Autowired
+	private CategoryService categoryService;
+	
+	@Autowired
 	private IProductRepository repository;
 
 	@Override
-	public void getProducts(List<IViewProductDTO> products) {
-		List<Product> domainProducts = repository.findAll();
-
-		for (Product product : domainProducts) {
-			IViewProductDTO productDto = buildProductViewDTO(product);
-
-			products.add(productDto);
-		}
+	public List<Product> getAll() {
+		return repository.findAll();
 	}
 
 	@Override
-	public void getProductById(IViewProductDTO productDTO) {
-		Product product = repository.findOne(productDTO.getId());
-
-		buildProductViewDTO(product, productDTO);
+	public Product getById(long id) {
+		return repository.findOne(id);
 	}
 
 	@Override
-	public void createProduct(ICreateProductDTO productDTO) {
+	public void create(IProductCreateDTO productDTO) {
+		Price price = new Price(productDTO.getPrice());
+		Category category = this.categoryService.findById(productDTO.getCategoryId());
+		
 		Product product = new Product(productDTO.getName(), productDTO.getBriefDescription(),
-				productDTO.getDescription(), productDTO.getUrlPhoto(), null, null);
+				productDTO.getDescription(), price, category);
 
 		this.repository.save(product);
 	}
 
-	private void buildProductViewDTO(Product product, IViewProductDTO productDto) {
-		productDto.setBriefDescription(product.getBriefDescription());
-		productDto.setDescription(product.getDescription());
-		productDto.setId(product.getId());
-		productDto.setName(product.getName());
-		productDto.setUrlPhoto(product.getUrlPhoto());
-	}
+	@Override
+	public void update(IProductCreateDTO productDTO) {
+		Product product = this.repository.findOne(productDTO.getId());
+		
+		Price price = new Price(productDTO.getPrice());
+		Category category = this.categoryService.findById(productDTO.getCategoryId());
+		
+		product.update(productDTO.getName(), productDTO.getBriefDescription(),
+				productDTO.getDescription(), price, category);
 
-	private IViewProductDTO buildProductViewDTO(Product product) {
-		IViewProductDTO productDTO = new ViewProductDTO();
-
-		buildProductViewDTO(product, productDTO);
-
-		return productDTO;
+		this.repository.save(product);
 	}
 
 }
