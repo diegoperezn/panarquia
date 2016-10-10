@@ -2,12 +2,12 @@ package com.panarquia.api.domain.DTOs;
 
 public interface IProductDTO {
 
-	long getId();
+	Long getId();
 
 	String getName();
 
 	String getBriefDescription();
 
 	String getDescription();
-
+	
 }

@@ -11,8 +11,10 @@ public interface IProductService {
 
 	List<? extends 	IProductViewDTO> getAll();
 
-	void create(IProductCreateDTO productDTO);
+	List<? extends 	IProductViewDTO> getProductsByCategoryId(Long categoryId);
+	
+	IProductViewDTO create(IProductCreateDTO dto);
 
-	void update(IProductCreateDTO productDTO);
+	void update(IProductCreateDTO dto);
 
 }

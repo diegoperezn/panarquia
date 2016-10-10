@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,17 +14,21 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 
 import com.panarquia.api.domain.DTOs.IProductViewDTO;
-import com.panarquia.api.utils.HistoricalArrayList;
 
 @Entity
 public class Product implements IProductViewDTO {
 
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 	
+	@Column(length = 25, nullable = false, unique = true)
 	private String name;
+	
+	@Column(length = 75, nullable = false, unique = true)
 	private String briefDescription;
+	
+	@Column(length = 250, nullable = false, unique = true)
 	private String description;
 	
 	@ManyToOne
@@ -32,7 +37,7 @@ public class Product implements IProductViewDTO {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "product_id")
 	@OrderBy("from DESC")
-	private HistoricalArrayList<Price> prices = new HistoricalArrayList<>();
+	private List<Price> prices = new ArrayList<>();
 	
 	protected Product() {}
 	
@@ -43,7 +48,7 @@ public class Product implements IProductViewDTO {
 		this.description = description;
 		this.category = category;
 
-		this.prices.add(price);
+		this.addPrice(price);
 	}
 	
 
@@ -54,14 +59,16 @@ public class Product implements IProductViewDTO {
 		this.description = description;
 		this.category = category;
 
-		this.prices.add(price);
+		if (price != null) {
+			this.addPrice(price);
+		}
 	}	
 	
 	/* (non-Javadoc)
 	 * @see com.panarquia.api.domain.IProductDTO#getId()
 	 */
 	@Override
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -101,9 +108,23 @@ public class Product implements IProductViewDTO {
 		return category;
 	}
 
+	private void addPrice(Price price) {
+		if (!this.prices.isEmpty()) {
+			this.getPrice().setTo(price.getFrom());
+		}
+		
+		this.prices.add(price);
+	}
+	
 	@Override
 	public Price getPrice() {
-		return (Price) this.prices.getCurrentElement();
+		for (Price price : prices) {
+			if (price.getTo() == null) {
+				return price;
+			}
+		}
+		
+		return null;
 	}
 	
 }

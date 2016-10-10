@@ -1,5 +1,6 @@
 package com.panarquia.api.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,7 +14,10 @@ public class Category implements ICategoryDTO {
 	@GeneratedValue
 	private Long id;
 
+	@Column(length = 25, nullable = false, unique = true)
 	private String name;
+	
+	@Column(length = 250, nullable = false, unique = true)
 	private String description;
 
 	protected Category() {
@@ -24,11 +28,16 @@ public class Category implements ICategoryDTO {
 		this.description = description;
 	}
 
+	public void update(String name, String description) {
+		this.name = name;
+		this.description = description;
+	}
+
 	public Category(Long categoryId) {
 		this.id = categoryId;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 

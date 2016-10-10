@@ -27,30 +27,38 @@ public class ProductService implements IProductService {
 	}
 
 	@Override
+	public List<Product> getProductsByCategoryId(Long categoryId) {
+		return repository.getByCategoryId(categoryId);
+	}
+
+	@Override
 	public Product getById(long id) {
 		return repository.findOne(id);
 	}
-
+	
 	@Override
-	public void create(IProductCreateDTO productDTO) {
-		Price price = new Price(productDTO.getPrice());
-		Category category = this.categoryService.findById(productDTO.getCategoryId());
+	public Product create(IProductCreateDTO dto) {
+		Price price = new Price(dto.getPrice());
+		Category category = this.categoryService.getById(dto.getCategoryId());
 		
-		Product product = new Product(productDTO.getName(), productDTO.getBriefDescription(),
-				productDTO.getDescription(), price, category);
+		Product product = new Product(dto.getName(), dto.getBriefDescription(),
+				dto.getDescription(), price, category);
 
-		this.repository.save(product);
+		return this.repository.save(product);
 	}
 
 	@Override
-	public void update(IProductCreateDTO productDTO) {
-		Product product = this.repository.findOne(productDTO.getId());
+	public void update(IProductCreateDTO dto) {
+		Product product = this.repository.findOne(dto.getId());
+		Category category = this.categoryService.getById(dto.getCategoryId());
 		
-		Price price = new Price(productDTO.getPrice());
-		Category category = this.categoryService.findById(productDTO.getCategoryId());
+		Price price = null;
+		if (!dto.getPrice().equals(product.getPrice().getPrice())) {
+			price = new Price(dto.getPrice());
+		}
 		
-		product.update(productDTO.getName(), productDTO.getBriefDescription(),
-				productDTO.getDescription(), price, category);
+		product.update(dto.getName(), dto.getBriefDescription(),
+				dto.getDescription(), price, category);
 
 		this.repository.save(product);
 	}

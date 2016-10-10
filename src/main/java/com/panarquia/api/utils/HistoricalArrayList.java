@@ -3,6 +3,7 @@ package com.panarquia.api.utils;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+
 public class HistoricalArrayList<T extends IHistorical> extends ArrayList<T>{
 
 	private static final long serialVersionUID = 1L;
@@ -17,7 +18,7 @@ public class HistoricalArrayList<T extends IHistorical> extends ArrayList<T>{
 		return super.add(e);
 	}
 
-	public IHistorical getCurrentElement() {
+	private IHistorical getCurrentElement() {
 		if (!this.isEmpty()) {
 			for (Iterator<T> iterator = this.iterator(); iterator.hasNext();) {
 				T element = iterator.next();

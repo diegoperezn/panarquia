@@ -7,28 +7,39 @@ import org.springframework.stereotype.Service;
 
 import com.panarquia.api.domain.Category;
 import com.panarquia.api.domain.DTOs.ICategoryDTO;
-import com.panarquia.api.domain.DTOs.ICreateCategoryDTO;
 import com.panarquia.api.domain.repository.ICategoryRepository;
+import com.panarquia.api.domain.service.ICategoryService;
 
 @Service
-public class CategoryService {
+public class CategoryService implements ICategoryService {
 
 	@Autowired
 	private ICategoryRepository categoryRepository;
 	
-	public void create(ICreateCategoryDTO categoryDTO) {
-		Category category = new Category(categoryDTO.getName(), categoryDTO.getDescription());
+	@Override
+	public Category create(ICategoryDTO dto) {
+		Category category = new Category(dto.getName(), dto.getDescription());
+		
+		return this.categoryRepository.save(category);
+	}
+
+	@Override
+	public Category getById(long id) {
+		return this.categoryRepository.findOne(id);
+	}
+
+	@Override
+	public List<Category> getAll() {
+		return this.categoryRepository.findAll();
+	}
+
+	@Override
+	public void update(ICategoryDTO dto) {
+		Category category = this.categoryRepository.getOne(dto.getId());
+		
+		category.update(dto.getName(), dto.getDescription());
 		
 		this.categoryRepository.save(category);
-	}
-	
-	public void getAll(List<ICategoryDTO> categoryDTOs) {
-		categoryDTOs.addAll(this.categoryRepository.findAll());
-	}
-	
-	public Category findById(long id) { 
-		return this.categoryRepository.getOne(id);
-		
 	}
 	
 }

@@ -5,5 +5,6 @@ public interface IProductViewDTO extends IProductDTO {
 	IPriceDTO getPrice();
 
 	ICategoryDTO getCategory();
+	
 
 }

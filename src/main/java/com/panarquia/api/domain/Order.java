@@ -3,15 +3,17 @@ package com.panarquia.api.domain;
 import java.util.Date;
 import java.util.List;
 
+import com.panarquia.api.domain.DTOs.IClientDTO;
+
 public class Order {
 
 	private long id;
-	private Client client;
+	private IClientDTO client;
 	private Date created;
 	private Date delivered;
 	private List<OrderState> historicStates;
 
-	public Order(long id, Client client, Date created, Date delivered, List<OrderState> historicStates) {
+	public Order(long id, IClientDTO client, Date created, Date delivered, List<OrderState> historicStates) {
 		super();
 		this.id = id;
 		this.client = client;
@@ -24,7 +26,7 @@ public class Order {
 		return id;
 	}
 
-	public Client getClient() {
+	public IClientDTO getClient() {
 		return client;
 	}
 

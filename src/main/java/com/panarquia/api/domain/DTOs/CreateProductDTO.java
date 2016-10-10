@@ -1,10 +1,8 @@
-package com.panarquia.api.domain.DTOs.impl;
-
-import com.panarquia.api.domain.DTOs.IProductCreateDTO;
+package com.panarquia.api.domain.DTOs;
 
 public class CreateProductDTO implements IProductCreateDTO {
 
-	private long id;
+	private Long id;
 	private String name;
 	private String briefDescription;
 	private String description;
@@ -51,7 +49,7 @@ public class CreateProductDTO implements IProductCreateDTO {
 		this.categoryId = categoryId;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
