@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.panarquia.api.domain.DTOs.CreateProductDTO;
+import com.panarquia.api.controller.DTOs.impl.CreateProductDTO;
 import com.panarquia.api.domain.DTOs.IProductDTO;
-import com.panarquia.api.domain.DTOs.IProductViewDTO;
 import com.panarquia.api.domain.service.IProductService;
 
 @RestController
@@ -22,12 +21,12 @@ public class ProductController {
 	private IProductService productService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public List<? extends IProductViewDTO> getProducts() {
+	public List<? extends IProductDTO> getProducts() {
 		return productService.getAll();
 	}
 
 	@RequestMapping(value = "/byCategory/{categoryId}", method = RequestMethod.GET)
-	public List<? extends IProductViewDTO> getProductsByCategoryId(@PathVariable("categoryId") Long categoryId) {
+	public List<? extends IProductDTO> getProductsByCategoryId(@PathVariable("categoryId") Long categoryId) {
 		return productService.getProductsByCategoryId(categoryId);
 	}
 

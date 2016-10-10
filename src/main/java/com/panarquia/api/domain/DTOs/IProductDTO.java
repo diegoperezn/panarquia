@@ -9,5 +9,8 @@ public interface IProductDTO {
 	String getBriefDescription();
 
 	String getDescription();
-	
+
+	IPriceDTO getPrice();
+
+	ICategoryDTO getCategory();
 }

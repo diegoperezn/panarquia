@@ -1,6 +1,10 @@
-package com.panarquia.api.domain.DTOs;
+package com.panarquia.api.controller.DTOs.impl;
 
-public class CreateProductDTO implements IProductCreateDTO {
+import com.panarquia.api.domain.DTOs.ICategoryDTO;
+import com.panarquia.api.domain.DTOs.IPriceDTO;
+import com.panarquia.api.domain.DTOs.IProductDTO;
+
+public class CreateProductDTO implements IProductDTO {
 
 	private Long id;
 	private String name;
@@ -33,16 +37,24 @@ public class CreateProductDTO implements IProductCreateDTO {
 		this.description = description;
 	}
 
-	public Double getPrice() {
-		return price;
+	public IPriceDTO getPrice() {
+		PricetDTO dto = new PricetDTO();
+		
+		dto.setPrice(this.price);
+		
+		return dto;
 	}
 
 	public void setPrice(Double price) {
 		this.price = price;
 	}
 
-	public Long getCategoryId() {
-		return categoryId;
+	public ICategoryDTO getCategory() {
+		CategoryDTO dto = new CategoryDTO();
+		
+		dto.setId(categoryId);
+		
+		return dto;
 	}
 
 	public void setCategoryId(Long categoryId) {

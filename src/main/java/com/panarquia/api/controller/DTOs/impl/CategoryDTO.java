@@ -1,6 +1,8 @@
-package com.panarquia.api.domain.DTOs;
+package com.panarquia.api.controller.DTOs.impl;
 
-public class CreateCategoryDTO implements ICategoryDTO {
+import com.panarquia.api.domain.DTOs.ICategoryDTO;
+
+public class CategoryDTO implements ICategoryDTO {
 
 	private Long id;
 	private String name;

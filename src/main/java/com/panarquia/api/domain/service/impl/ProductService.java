@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.panarquia.api.domain.Category;
 import com.panarquia.api.domain.Price;
 import com.panarquia.api.domain.Product;
-import com.panarquia.api.domain.DTOs.IProductCreateDTO;
+import com.panarquia.api.domain.DTOs.IProductDTO;
 import com.panarquia.api.domain.repository.IProductRepository;
 import com.panarquia.api.domain.service.IProductService;
 
@@ -37,9 +37,9 @@ public class ProductService implements IProductService {
 	}
 	
 	@Override
-	public Product create(IProductCreateDTO dto) {
-		Price price = new Price(dto.getPrice());
-		Category category = this.categoryService.getById(dto.getCategoryId());
+	public Product create(IProductDTO dto) {
+		Price price = new Price(dto.getPrice().getPrice());
+		Category category = this.categoryService.getById(dto.getCategory().getId());
 		
 		Product product = new Product(dto.getName(), dto.getBriefDescription(),
 				dto.getDescription(), price, category);
@@ -48,13 +48,13 @@ public class ProductService implements IProductService {
 	}
 
 	@Override
-	public void update(IProductCreateDTO dto) {
+	public void update(IProductDTO dto) {
 		Product product = this.repository.findOne(dto.getId());
-		Category category = this.categoryService.getById(dto.getCategoryId());
+		Category category = this.categoryService.getById(dto.getCategory().getId());
 		
 		Price price = null;
 		if (!dto.getPrice().equals(product.getPrice().getPrice())) {
-			price = new Price(dto.getPrice());
+			price = new Price(dto.getPrice().getPrice());
 		}
 		
 		product.update(dto.getName(), dto.getBriefDescription(),

@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import com.panarquia.api.domain.DTOs.IPriceViewDTO;
+import com.panarquia.api.controller.DTOs.IPriceViewDTO;
 import com.panarquia.api.utils.IHistorical;
 
 @Entity

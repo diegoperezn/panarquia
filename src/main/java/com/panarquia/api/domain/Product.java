@@ -13,10 +13,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 
-import com.panarquia.api.domain.DTOs.IProductViewDTO;
+import com.panarquia.api.domain.DTOs.IProductDTO;
 
 @Entity
-public class Product implements IProductViewDTO {
+public class Product implements IProductDTO {
 
 	@Id
 	@GeneratedValue

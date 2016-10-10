@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.panarquia.api.domain.DTOs.CreateCategoryDTO;
+import com.panarquia.api.controller.DTOs.impl.CategoryDTO;
 import com.panarquia.api.domain.DTOs.ICategoryDTO;
 import com.panarquia.api.domain.service.ICategoryService;
 
@@ -32,12 +32,12 @@ public class CategoryController {
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ICategoryDTO createcategory(@RequestBody CreateCategoryDTO categoryDTO) {
+	public ICategoryDTO createcategory(@RequestBody CategoryDTO categoryDTO) {
 		return categoryService.create(categoryDTO);
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public void updatecategory(@RequestBody CreateCategoryDTO categoryDTO) {
+	public void updatecategory(@RequestBody CategoryDTO categoryDTO) {
 		categoryService.update(categoryDTO);
 	}
 
