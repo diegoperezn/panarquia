@@ -15,7 +15,7 @@ public class Price implements IPriceViewDTO, IHistorical {
 
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 	@Column(name = "from_date")
 	private Date from;
 	@Column(name = "to_date")
@@ -36,7 +36,7 @@ public class Price implements IPriceViewDTO, IHistorical {
 	 * @see com.panarquia.api.domain.IViewPriceDTO#getId()
 	 */
 	@Override
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 

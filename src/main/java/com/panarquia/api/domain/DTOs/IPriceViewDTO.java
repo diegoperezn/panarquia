@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 public interface IPriceViewDTO extends IPriceDTO {
 
-	long getId();
+	Long getId();
 
 	@JsonFormat(pattern="dd-MM-yyyy HH:mm")
 	Date getFrom();
