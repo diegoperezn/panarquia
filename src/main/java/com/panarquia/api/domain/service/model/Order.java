@@ -1,19 +1,18 @@
-package com.panarquia.api.domain;
+package com.panarquia.api.domain.service.model;
 
 import java.util.Date;
 import java.util.List;
 
-import com.panarquia.api.domain.DTOs.IClientDTO;
 
 public class Order {
 
 	private long id;
-	private IClientDTO client;
+	private Client client;
 	private Date created;
 	private Date delivered;
 	private List<OrderState> historicStates;
 
-	public Order(long id, IClientDTO client, Date created, Date delivered, List<OrderState> historicStates) {
+	public Order(long id, Client client, Date created, Date delivered, List<OrderState> historicStates) {
 		super();
 		this.id = id;
 		this.client = client;
@@ -26,7 +25,7 @@ public class Order {
 		return id;
 	}
 
-	public IClientDTO getClient() {
+	public Client getClient() {
 		return client;
 	}
 

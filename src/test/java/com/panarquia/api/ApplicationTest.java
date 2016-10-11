@@ -3,7 +3,7 @@ package com.panarquia.api;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.panarquia.api.domain.repository.ICategoryRepository;
+import com.panarquia.api.domain.service.repository.ICategoryRepository;
 
 public class ApplicationTest {
 	

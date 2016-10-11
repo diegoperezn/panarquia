@@ -5,15 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.panarquia.api.domain.Category;
-import com.panarquia.api.domain.Price;
-import com.panarquia.api.domain.Product;
 import com.panarquia.api.domain.DTOs.IProductDTO;
-import com.panarquia.api.domain.repository.IProductRepository;
 import com.panarquia.api.domain.service.IProductService;
+import com.panarquia.api.domain.service.model.Category;
+import com.panarquia.api.domain.service.model.Price;
+import com.panarquia.api.domain.service.model.Product;
+import com.panarquia.api.domain.service.repository.IProductRepository;
 
 @Service
-public class ProductService implements IProductService {
+class ProductService implements IProductService {
 
 	@Autowired
 	private CategoryService categoryService;

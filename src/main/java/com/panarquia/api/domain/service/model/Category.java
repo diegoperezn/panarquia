@@ -1,4 +1,4 @@
-package com.panarquia.api.domain;
+package com.panarquia.api.domain.service.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

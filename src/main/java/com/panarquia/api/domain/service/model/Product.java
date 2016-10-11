@@ -1,4 +1,4 @@
-package com.panarquia.api.domain;
+package com.panarquia.api.domain.service.model;
 
 import java.util.ArrayList;
 import java.util.List;

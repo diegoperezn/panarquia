@@ -1,4 +1,4 @@
-package com.panarquia.api.utils;
+package com.panarquia.api.domain.utils;
 
 import java.util.ArrayList;
 import java.util.Iterator;

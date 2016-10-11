@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.panarquia.api.domain.Client;
 import com.panarquia.api.domain.DTOs.IClientDTO;
-import com.panarquia.api.domain.repository.IClientRepository;
 import com.panarquia.api.domain.service.IClientService;
+import com.panarquia.api.domain.service.model.Client;
+import com.panarquia.api.domain.service.repository.IClientRepository;
 
 @Service
-public class ClientService implements IClientService {
+class ClientService implements IClientService {
 
 	@Autowired
 	private IClientRepository repository;

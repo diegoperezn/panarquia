@@ -8,10 +8,10 @@ public interface IProductService {
 
 	IProductDTO getById(long productId);
 
-	List<? extends 	IProductDTO> getAll();
+	List<? extends IProductDTO> getAll();
 
-	List<? extends 	IProductDTO> getProductsByCategoryId(Long categoryId);
-	
+	List<? extends IProductDTO> getProductsByCategoryId(Long categoryId);
+
 	IProductDTO create(IProductDTO dto);
 
 	void update(IProductDTO dto);

@@ -1,4 +1,4 @@
-package com.panarquia.api.domain;
+package com.panarquia.api.domain.service.model;
 
 import java.util.Date;
 
@@ -8,10 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import com.panarquia.api.controller.DTOs.IPriceViewDTO;
-import com.panarquia.api.utils.IHistorical;
 
 @Entity
-public class Price implements IPriceViewDTO, IHistorical {
+public class Price implements IPriceViewDTO {
 
 	@Id
 	@GeneratedValue

@@ -1,4 +1,4 @@
-package com.panarquia.api.domain;
+package com.panarquia.api.domain.service.model;
 
 public class OrderState {
 

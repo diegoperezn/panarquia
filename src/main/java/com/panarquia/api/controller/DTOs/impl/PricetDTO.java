@@ -7,11 +7,11 @@ import com.panarquia.api.domain.DTOs.IPriceDTO;
 public class PricetDTO implements IPriceDTO {
 
 	private Double price;
-	
+
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	
+
 	@Override
 	public Double getPrice() {
 		return price;

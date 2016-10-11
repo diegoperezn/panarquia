@@ -2,7 +2,7 @@ package com.panarquia.api.domain.DTOs;
 
 import java.util.List;
 
-import com.panarquia.api.domain.Order;
+import com.panarquia.api.domain.service.model.Order;
 
 public interface IClientDTO {
 
