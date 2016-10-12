@@ -16,4 +16,6 @@ public interface IProductService {
 
 	void update(IProductDTO dto);
 
+	void getById(Long id, IProductDTO product);
+
 }

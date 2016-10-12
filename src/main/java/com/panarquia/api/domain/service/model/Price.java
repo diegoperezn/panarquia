@@ -7,10 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import com.panarquia.api.controller.DTOs.IPriceViewDTO;
+import com.panarquia.api.domain.DTOs.IPriceDTO;
 
 @Entity
-public class Price implements IPriceViewDTO {
+public class Price implements IPriceDTO {
 
 	@Id
 	@GeneratedValue

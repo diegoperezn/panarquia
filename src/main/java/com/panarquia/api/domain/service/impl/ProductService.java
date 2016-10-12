@@ -63,4 +63,9 @@ class ProductService implements IProductService {
 		this.repository.save(product);
 	}
 
+	@Override
+	public void getById(Long id, IProductDTO product) {
+		product = repository.findOne(id);
+	}
+
 }

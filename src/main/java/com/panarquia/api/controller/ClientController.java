@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.panarquia.api.controller.DTOs.impl.ClientDTO;
+import com.panarquia.api.controller.DTOs.temp.IClientViewDTO;
 import com.panarquia.api.domain.DTOs.IClientDTO;
 import com.panarquia.api.domain.service.IClientService;
 
@@ -30,12 +32,12 @@ public class ClientController {
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.PUT)
-	public IClientDTO createClient(@RequestBody IClientDTO clientDTO) {
+	public IClientDTO createClient(@RequestBody ClientDTO clientDTO) {
 		return clientService.create(clientDTO);
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public void updateClient(@RequestBody IClientDTO clientDTO) {
+	public void updateClient(@RequestBody ClientDTO clientDTO) {
 		clientService.update(clientDTO);
 	}
 

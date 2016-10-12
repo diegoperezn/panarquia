@@ -1,4 +1,4 @@
-package com.panarquia.api.controller.DTOs;
+package com.panarquia.api.controller.DTOs.temp;
 
 import java.util.Date;
 

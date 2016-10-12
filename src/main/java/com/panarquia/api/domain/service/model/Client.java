@@ -27,6 +27,9 @@ public class Client implements IClientDTO {
 	@Column(length = 25, nullable = false, unique = false)
 	private String password;
 	
+	@Column(nullable = false)
+	private Boolean isAdmin = Boolean.FALSE;
+	
 	@Transient
 	List<Order> orders = new ArrayList<>();
 
@@ -68,6 +71,11 @@ public class Client implements IClientDTO {
 	@Override
 	public String getName() {
 		return name;
+	}
+	
+	@Override
+	public Boolean isAdmin() {
+		return isAdmin;
 	}
 
 }

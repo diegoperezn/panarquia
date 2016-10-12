@@ -6,14 +6,16 @@ import com.panarquia.api.domain.service.model.Order;
 
 public interface IClientDTO {
 
-	String getEmail();
-
-	String getPassword();
-
-	List<Order> getOrders();
-
 	Long getId();
 
 	String getName();
+
+	String getPassword();
+
+	String getEmail();
+
+	List<Order> getOrders();
+
+	Boolean isAdmin();
 
 }
