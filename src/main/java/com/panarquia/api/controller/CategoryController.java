@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.panarquia.api.controller.DTOs.impl.CategoryDTO;
-import com.panarquia.api.domain.DTOs.ICategoryDTO;
 import com.panarquia.api.domain.service.ICategoryService;
 
 @RestController
