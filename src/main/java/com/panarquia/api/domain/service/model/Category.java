@@ -5,10 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import com.panarquia.api.domain.DTOs.ICategoryDTO;
-
 @Entity
-public class Category implements ICategoryDTO {
+public class Category {
 
 	@Id
 	@GeneratedValue

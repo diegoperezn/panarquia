@@ -6,11 +6,11 @@ import com.panarquia.api.domain.DTOs.ICategoryDTO;
 
 public interface ICategoryService {
 
-	ICategoryDTO getById(long id);
+	void getById(ICategoryDTO category);
 
-	List<? extends ICategoryDTO> getAll();
+	void getAll(List<? extends ICategoryDTO> resultList);
 
-	ICategoryDTO create(ICategoryDTO dto);
+	Long create(ICategoryDTO dto);
 
 	void update(ICategoryDTO dto);
 

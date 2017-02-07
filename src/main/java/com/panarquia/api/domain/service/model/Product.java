@@ -100,10 +100,6 @@ public class Product implements IProductDTO {
 		return prices;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.panarquia.api.domain.IProductDTO#getCategory()
-	 */
-	@Override
 	public Category getCategory() {
 		return category;
 	}

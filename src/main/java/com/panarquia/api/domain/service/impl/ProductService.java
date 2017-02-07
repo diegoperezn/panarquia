@@ -10,13 +10,14 @@ import com.panarquia.api.domain.service.IProductService;
 import com.panarquia.api.domain.service.model.Category;
 import com.panarquia.api.domain.service.model.Price;
 import com.panarquia.api.domain.service.model.Product;
+import com.panarquia.api.domain.service.repository.ICategoryRepository;
 import com.panarquia.api.domain.service.repository.IProductRepository;
 
 @Service
 class ProductService implements IProductService {
 
 	@Autowired
-	private CategoryService categoryService;
+	private ICategoryRepository categoryRepository;
 	
 	@Autowired
 	private IProductRepository repository;
@@ -39,7 +40,7 @@ class ProductService implements IProductService {
 	@Override
 	public Product create(IProductDTO dto) {
 		Price price = new Price(dto.getPrice().getPrice());
-		Category category = this.categoryService.getById(dto.getCategory().getId());
+		Category category = null; // this.categoryRepository.getOne(dto.getCategory().getId());
 		
 		Product product = new Product(dto.getName(), dto.getBriefDescription(),
 				dto.getDescription(), price, category);
@@ -50,7 +51,7 @@ class ProductService implements IProductService {
 	@Override
 	public void update(IProductDTO dto) {
 		Product product = this.repository.findOne(dto.getId());
-		Category category = this.categoryService.getById(dto.getCategory().getId());
+		Category category = null; // this.categoryRepository.getOne(dto.getCategory().getId());
 		
 		Price price = null;
 		if (!dto.getPrice().equals(product.getPrice().getPrice())) {

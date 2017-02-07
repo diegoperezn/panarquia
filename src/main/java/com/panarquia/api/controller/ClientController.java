@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.panarquia.api.controller.DTOs.impl.ClientDTO;
-import com.panarquia.api.controller.DTOs.temp.IClientViewDTO;
 import com.panarquia.api.domain.DTOs.IClientDTO;
 import com.panarquia.api.domain.service.IClientService;
 

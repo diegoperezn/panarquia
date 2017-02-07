@@ -1,7 +1,10 @@
 package com.panarquia.api.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.collections.Factory;
+import org.apache.commons.collections.list.LazyList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,17 +25,34 @@ public class CategoryController {
 	private ICategoryService categoryService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public List<? extends ICategoryDTO> getcategorys() {
-		return categoryService.getAll();
+	public List<CategoryDTO> getcategories() {
+		Factory factory = new Factory() {
+
+			@Override
+			public Object create() {
+				return new CategoryDTO();
+			}
+		};
+
+		List<CategoryDTO> result = LazyList.decorate(new ArrayList<CategoryDTO>(), factory);
+
+		categoryService.getAll(result);
+
+		return result;
 	}
 
 	@RequestMapping(value = "/{categoryId}", method = RequestMethod.GET)
-	public ICategoryDTO getcategoryById(@PathVariable("categoryId") Long categoryId) {
-		return categoryService.getById(categoryId);
+	public CategoryDTO getcategoryById(@PathVariable("categoryId") Long categoryId) {
+		CategoryDTO category = new CategoryDTO();
+		category.setId(categoryId);
+
+		categoryService.getById(category);
+
+		return category;
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ICategoryDTO createcategory(@RequestBody CategoryDTO categoryDTO) {
+	public Long createcategory(@RequestBody CategoryDTO categoryDTO) {
 		return categoryService.create(categoryDTO);
 	}
 

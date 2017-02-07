@@ -12,5 +12,4 @@ public interface IProductDTO {
 
 	IPriceDTO getPrice();
 
-	ICategoryDTO getCategory();
 }
