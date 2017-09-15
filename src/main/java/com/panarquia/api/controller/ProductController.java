@@ -14,7 +14,7 @@ import com.panarquia.api.domain.DTOs.IProductDTO;
 import com.panarquia.api.domain.service.IProductService;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/products")
 public class ProductController {
 
 	@Autowired
