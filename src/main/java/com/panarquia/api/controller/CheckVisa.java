@@ -37,7 +37,7 @@ public class CheckVisa {
 			Matcher matcher = pattern.matcher(page);
 
 			 matches = matcher.find();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			return e.getMessage();
 		}
 		
