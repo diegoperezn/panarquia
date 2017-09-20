@@ -25,6 +25,7 @@ public class CheckVisa {
 	public String check() {
 		boolean matches = false;
 
+		String error = "no";
 		try {
 			Runtime runtime = Runtime.getRuntime();
 
@@ -40,10 +41,10 @@ public class CheckVisa {
 
 			matches = matcher.find();
 		} catch (Exception e) {
-			return e.getMessage();
+			error = e.getMessage();
 		}
 
-		return String.valueOf(matches);
+		return error;
 	}
 
 }
