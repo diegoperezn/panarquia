@@ -20,7 +20,7 @@ public class CheckVisa {
 
 //	@Scheduled(initialDelay = 1000, fixedDelay = 5000)
 	@RequestMapping(method = RequestMethod.GET)
-	public void check() throws IOException {
+	public Boolean check() throws IOException {
 		Runtime runtime = Runtime.getRuntime();
 
 		Process process = runtime.exec(url);
@@ -34,7 +34,7 @@ public class CheckVisa {
         Matcher matcher = pattern.matcher(page);
         boolean matches = matcher.find();
 		
-        System.out.println(matches);
+        return matches;
 	}
 	
 
